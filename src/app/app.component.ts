@@ -7,4 +7,30 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'practica3';
+
+  mensaje="No hay saldo"
+
+  visualizaDiv=false;
+
+  
+  array=[
+    {
+      nombre:'pedro',
+      apellido:'vera'
+    },
+    {
+      nombre:'juan',
+      apellido:'murcia'
+    },
+    {
+      nombre:'luis',
+      apellido:'cordero'
+    },
+  ];
+
+
+  visualiza(){
+    this.visualizaDiv=!this.visualizaDiv;
+  }
+
 }

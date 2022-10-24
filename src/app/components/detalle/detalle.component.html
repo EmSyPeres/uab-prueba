@@ -1,0 +1,20 @@
+<div class="container">
+    <h1 class="text-uppercase sameLinia mt-2">{{heroes[id].nombre}} </h1>
+    <h3 class="sameLinia fw-light">&nbsp;({{year}})</h3>
+    
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <div style="width: 18rem;">
+                <img src="{{heroes[id].img}}" class="card-img-top" alt="{{heroes[id].nombre}}">
+                <div class="d-grid gap-2 mt-3">
+                    <button type="button" class="btn btn-outline-danger" [routerLink]="['/cards']">Regresar</button>              
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <h3 class="margin">{{heroes[id].nombre}}</h3>
+            <hr>
+            <p class="margin">{{heroes[id].bio}}</p>
+        </div>
+      </div>
+</div>
