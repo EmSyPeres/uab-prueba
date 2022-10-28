@@ -70,7 +70,12 @@ export class DetalleComponent implements OnInit {
   nombredetalle:any;
   id: any;
   year:any;
+  logo: any;
+  imatgeLogo:any;
+  
   constructor(private route: ActivatedRoute) { }
+
+
 
   ngOnInit(): void {
     this.id=this.route.snapshot.paramMap.get('id');
@@ -79,11 +84,19 @@ export class DetalleComponent implements OnInit {
       if (this.id==this.heroes[i].id) {
          this.nombredetalle=this.heroes[i].nombre;
          this.year=this.heroes[i].aparicion.substring(0,4);
+         this.logo=this.heroes[i].casa;
+         if (this.logo=="Marvel") {
+          this.imatgeLogo=true;
+       } else {
+          this.imatgeLogo=false;
+       }
+       
       }
-    
+      
      }
-
+        
   }
+
 
  
 }

@@ -1,8 +1,12 @@
 <div class="container">
-    <h1 class="text-uppercase sameLinia mt-2">{{heroes[id].nombre}} </h1>
-    <h3 class="sameLinia fw-light">&nbsp;({{year}})</h3>
     
-    <div class="row justify-content-center">
+    <div class="margin mt-2">
+        <h1 class="text-uppercase sameLinia mt-2">{{heroes[id].nombre}} </h1>
+        <h3 class="sameLinia fw-light">&nbsp;({{year}})</h3>
+    </div>
+    
+    
+    <div class="row justify-content-center container">
         <div class="col-3">
             <div style="width: 18rem;">
                 <img src="{{heroes[id].img}}" class="card-img-top" alt="{{heroes[id].nombre}}">
@@ -11,10 +15,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-8">
-            <h3 class="margin">{{heroes[id].nombre}}</h3>
+        <div class="col-8 mb-5 container ">
+            <h3 >{{heroes[id].nombre}}</h3>
             <hr>
-            <p class="margin">{{heroes[id].bio}}</p>
+            <p >{{heroes[id].bio}}</p>
+            <div *ngIf="imatgeLogo">
+                <img class="tamanyImg"src="\assets\img\marvel.png">
+            </div>
+            <div *ngIf="!imatgeLogo">
+                <img class="tamanyImg" src="\assets\img\DC.jpg">
+            </div>
         </div>
       </div>
 </div>
