@@ -4,6 +4,24 @@
 
 }
 
+.textjustificat{
+
+  text-align: justify;
+  text-justify: inter-word;
+
+}
+.botóFondo{
+  background-color: white;
+  color:orangered;
+}
+.cssBotóBanner{
+  margin-top: 190px;
+  margin-left: 10px;
+}
+.cssBotóBannerDuende{
+  margin-top: 340px;
+  margin-left: 10px;
+}
 
 *, *:before, *:after {
     box-sizing: border-box;
