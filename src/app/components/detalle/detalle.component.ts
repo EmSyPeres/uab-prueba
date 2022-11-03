@@ -68,10 +68,15 @@ export class DetalleComponent implements OnInit {
   ];
 
   nombredetalle:any;
+  biodetalle:any;
+  imgdetalle:any;
+  apariciondetalle:any;
+  casadetalle:any;
   id: any;
-  year:any;
   logo: any;
-  imatgeLogo:any;
+  numposiblesheroes:any=0;
+  
+  
   
   constructor(private route: ActivatedRoute) { }
 
@@ -79,18 +84,26 @@ export class DetalleComponent implements OnInit {
 
   ngOnInit(): void {
     this.id=this.route.snapshot.paramMap.get('id');
+    let arraySearch: string[]=[];
+
+    for (let j = 0; j < this.heroes.length; j++) {
+      if (this.heroes[j].nombre.toLowerCase().indexOf(this.id.toLowerCase()) >=0) {
+        arraySearch[this.numposiblesheroes]=this.heroes[j].nombre;
+        this.numposiblesheroes++;
+      }
+      
+    } 
+    console.log(arraySearch);
+     
     
     for (let i = 0; i < this.heroes.length; i++) {
-      if (this.id==this.heroes[i].id) {
+     
+      if (this.id == this.heroes[i].id || this.heroes[i].nombre.toLowerCase().indexOf(this.id.toLowerCase()) >=0 ) {
          this.nombredetalle=this.heroes[i].nombre;
-         this.year=this.heroes[i].aparicion.substring(0,4);
-         this.logo=this.heroes[i].casa;
-         if (this.logo=="Marvel") {
-          this.imatgeLogo=true;
-       } else {
-          this.imatgeLogo=false;
-       }
-       
+         this.biodetalle=this.heroes[i].bio;
+         this.imgdetalle=this.heroes[i].img;
+         this.apariciondetalle=this.heroes[i].aparicion;
+         this.logo=this.heroes[i].casa;      
       }
       
      }

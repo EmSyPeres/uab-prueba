@@ -1,28 +1,28 @@
 <div class="container">
     
     <div class="margin mt-2">
-        <h1 class="text-uppercase sameLinia mt-2">{{heroes[id].nombre}} </h1>
-        <h3 class="sameLinia fw-light">&nbsp;({{year}})</h3>
+        <h1 class="sameLinia mt-2">{{nombredetalle | uppercase }} </h1>
+        <span class="sameLinia fw-light fs-3"> &nbsp;({{apariciondetalle | date:'y'}})</span>
     </div>
     
     
     <div class="row justify-content-center container">
         <div class="col-3">
             <div style="width: 18rem;">
-                <img src="{{heroes[id].img}}" class="card-img-top" alt="{{heroes[id].nombre}}">
+                <img src="{{imgdetalle}}" class="card-img-top" alt="{{nombredetalle}}">
                 <div class="d-grid gap-2 mt-3">
                     <button type="button" class="btn btn-outline-danger" [routerLink]="['/cards']">Regresar</button>              
                 </div>
             </div>
         </div>
         <div class="col-8 mb-5 container ">
-            <h3 >{{heroes[id].nombre}}</h3>
+            <h3 >{{nombredetalle}}</h3>
             <hr>
-            <p >{{heroes[id].bio}}</p>
-            <div *ngIf="imatgeLogo">
+            <p >{{biodetalle}}</p>
+            <div *ngIf="logo=='Marvel'">
                 <img class="tamanyImg"src="\assets\img\marvel.png">
             </div>
-            <div *ngIf="!imatgeLogo">
+            <div *ngIf="logo=='DC'">
                 <img class="tamanyImg" src="\assets\img\DC.jpg">
             </div>
         </div>
