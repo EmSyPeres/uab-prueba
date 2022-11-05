@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {  ActivatedRoute } from "@angular/router";
-import { HereoesSearchComponent } from '../hereoes-search/hereoes-search.component';
 
 @Component({
-  selector: 'app-detalle',
-  templateUrl: './detalle.component.html',
-  styleUrls: ['./detalle.component.css']
-  
+  selector: 'app-hereoes-search',
+  templateUrl: './hereoes-search.component.html',
+  styleUrls: ['./hereoes-search.component.css']
 })
-export class DetalleComponent implements OnInit {
+export class HereoesSearchComponent implements OnInit {
+
+  @Input() dataEntrante:any;
 
   heroes= [
     {
@@ -69,54 +69,22 @@ export class DetalleComponent implements OnInit {
     }
   ];
 
-  nombredetalle:any;
-  biodetalle:any;
-  imgdetalle:any;
-  apariciondetalle:any;
-  casadetalle:any;
-  id: any;
-  logo: any;
-  numposiblesheroes:any=0;
-  arraySearch: string[]=[];
-  
+  id:any;
+
+ 
+ 
   
   constructor(private route: ActivatedRoute) {
     
-   }
-
-
-
-  ngOnInit(): void {
-    this.id=this.route.snapshot.paramMap.get('id');
-    
-
-    for (let j = 0; j < this.heroes.length; j++) {
-      if (this.heroes[j].nombre.toLowerCase().indexOf(this.id.toLowerCase()) >=0) {
-        this.arraySearch[this.numposiblesheroes]=this.heroes[j].nombre;
-        this.numposiblesheroes++;
-      }
-      
-    } 
-    console.log(this.arraySearch);
-    
-     if (this.numposiblesheroes<=1) {
-        
-      for (let i = 0; i < this.heroes.length; i++) {
-     
-        if (this.id == this.heroes[i].id || this.heroes[i].nombre.toLowerCase().indexOf(this.id.toLowerCase()) >=0 ) {
-           this.nombredetalle=this.heroes[i].nombre;
-           this.biodetalle=this.heroes[i].bio;
-           this.imgdetalle=this.heroes[i].img;
-           this.apariciondetalle=this.heroes[i].aparicion;
-           this.logo=this.heroes[i].casa;      
-        }
-        
-       }
-    }
-    
-        
   }
 
+  ngOnInit(): void {
+    
+    
+  console.log(this.dataEntrante);
+  console.log(this.id);
+  
+  
+}
 
- 
 }

@@ -1,30 +1,38 @@
-<div class="container">
+<div *ngIf="numposiblesheroes>1;else elseBlock">
     
-    <div class="margin mt-2">
-        <h1 class="sameLinia mt-2">{{nombredetalle | uppercase }} </h1>
-        <span class="sameLinia fw-light fs-3"> &nbsp;({{apariciondetalle | date:'y'}})</span>
-    </div>
+    <app-hereoes-search [dataEntrante]="arraySearch"></app-hereoes-search>
     
-    
-    <div class="row justify-content-center container">
-        <div class="col-3">
-            <div style="width: 18rem;">
-                <img src="{{imgdetalle}}" class="card-img-top" alt="{{nombredetalle}}">
-                <div class="d-grid gap-2 mt-3">
-                    <button type="button" class="btn btn-outline-danger" [routerLink]="['/cards']">Regresar</button>              
+
+</div>
+<ng-template #elseBlock>
+    <div class="container">
+        
+        <div class="margin mt-2">
+            <h1 class="sameLinia mt-2">{{nombredetalle | uppercase }} </h1>
+            <span class="sameLinia fw-light fs-3"> &nbsp;({{apariciondetalle | date:'y'}})</span>
+        </div>
+        
+        
+        <div class="row justify-content-center container">
+            <div class="col-3">
+                <div style="width: 18rem;">
+                    <img src="{{imgdetalle}}" class="card-img-top" alt="{{nombredetalle}}">
+                    <div class="d-grid gap-2 mt-3">
+                        <button type="button" class="btn btn-outline-danger" [routerLink]="['/cards']">Regresar</button>              
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 mb-5 container ">
+                <h3 >{{nombredetalle}}</h3>
+                <hr>
+                <p >{{biodetalle}}</p>
+                <div *ngIf="logo=='Marvel'">
+                    <img class="tamanyImg"src="\assets\img\marvel.png">
+                </div>
+                <div *ngIf="logo=='DC'">
+                    <img class="tamanyImg" src="\assets\img\DC.jpg">
                 </div>
             </div>
         </div>
-        <div class="col-8 mb-5 container ">
-            <h3 >{{nombredetalle}}</h3>
-            <hr>
-            <p >{{biodetalle}}</p>
-            <div *ngIf="logo=='Marvel'">
-                <img class="tamanyImg"src="\assets\img\marvel.png">
-            </div>
-            <div *ngIf="logo=='DC'">
-                <img class="tamanyImg" src="\assets\img\DC.jpg">
-            </div>
-        </div>
-      </div>
-</div>
+    </div>
+</ng-template>
