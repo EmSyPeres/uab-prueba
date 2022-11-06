@@ -5,7 +5,6 @@ import { HeroesCardsComponent } from './components/heroes-cards/heroes-cards.com
 import { DetalleComponent } from './components/detalle/detalle.component';
 import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
-import { HereoesSearchComponent } from './components/hereoes-search/hereoes-search.component';
 
 const routes: Routes = [
 
@@ -17,7 +16,6 @@ const routes: Routes = [
   {path:'cards',component:HeroesCardsComponent},
   {path:'detalle',component:DetalleComponent},
   {path:'about',component:AboutComponent},
-  {path:'search',component:HereoesSearchComponent},
   {path:'**',component:HomeComponent}
   
 

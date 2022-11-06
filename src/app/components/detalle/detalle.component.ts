@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  ActivatedRoute } from "@angular/router";
-import { HereoesSearchComponent } from '../hereoes-search/hereoes-search.component';
+import {  ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-detalle',
@@ -9,6 +8,8 @@ import { HereoesSearchComponent } from '../hereoes-search/hereoes-search.compone
   
 })
 export class DetalleComponent implements OnInit {
+
+ 
 
   heroes= [
     {
@@ -79,8 +80,13 @@ export class DetalleComponent implements OnInit {
   numposiblesheroes:any=0;
   arraySearch: string[]=[];
   
-  
-  constructor(private route: ActivatedRoute) {
+  async viajar(idArray:any){
+    this.router.navigate(['/detalle', idArray]);
+    const sleep = (ms: number | undefined) => new Promise(r => setTimeout(r, ms));
+    await sleep(50);
+    this.ngOnInit();
+  }
+    constructor(private route: ActivatedRoute, private router: Router) {
     
    }
 
@@ -88,6 +94,8 @@ export class DetalleComponent implements OnInit {
 
   ngOnInit(): void {
     this.id=this.route.snapshot.paramMap.get('id');
+    this.arraySearch.splice(0);
+    this.numposiblesheroes=0;
     
 
     for (let j = 0; j < this.heroes.length; j++) {
@@ -97,7 +105,7 @@ export class DetalleComponent implements OnInit {
       }
       
     } 
-    console.log(this.arraySearch);
+   
     
      if (this.numposiblesheroes<=1) {
         
