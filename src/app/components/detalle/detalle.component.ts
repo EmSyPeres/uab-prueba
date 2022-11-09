@@ -77,38 +77,18 @@ export class DetalleComponent implements OnInit {
   casadetalle:any;
   id: any;
   logo: any;
-  numposiblesheroes:any=0;
-  arraySearch: string[]=[];
+ 
   
-  async viajar(idArray:any){
-    this.router.navigate(['/detalle', idArray]);
-    const sleep = (ms: number | undefined) => new Promise(r => setTimeout(r, ms));
-    await sleep(50);
-    this.ngOnInit();
-  }
+  
     constructor(private route: ActivatedRoute, private router: Router) {
     
    }
 
-
+   
 
   ngOnInit(): void {
     this.id=this.route.snapshot.paramMap.get('id');
-    this.arraySearch.splice(0);
-    this.numposiblesheroes=0;
-    
-
-    for (let j = 0; j < this.heroes.length; j++) {
-      if (this.heroes[j].nombre.toLowerCase().indexOf(this.id.toLowerCase()) >=0) {
-        this.arraySearch[this.numposiblesheroes]=this.heroes[j].nombre;
-        this.numposiblesheroes++;
-      }
-      
-    } 
    
-    
-     if (this.numposiblesheroes<=1) {
-        
       for (let i = 0; i < this.heroes.length; i++) {
      
         if (this.id == this.heroes[i].id || this.heroes[i].nombre.toLowerCase().indexOf(this.id.toLowerCase()) >=0 ) {
@@ -120,7 +100,7 @@ export class DetalleComponent implements OnInit {
         }
         
        }
-    }
+    
     
         
   }

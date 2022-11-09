@@ -10,6 +10,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { DetalleComponent } from './components/detalle/detalle.component';
 
+import { BusquedaComponent } from './components/busqueda/busqueda.component';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { DetalleComponent } from './components/detalle/detalle.component';
     HomeComponent,
     AboutComponent,
     DetalleComponent,
+
+    BusquedaComponent,
 
   ],
   imports: [
