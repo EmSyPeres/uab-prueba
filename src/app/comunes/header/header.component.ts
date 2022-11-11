@@ -20,9 +20,14 @@ export class HeaderComponent implements OnInit {
   }
 
   buscar(){
-
+    
+    if(this.textoFinal==null){
+      this.textoFinal="buit";
+    }
+    
     this.route.navigate(['/busqueda', this.textoFinal]);
-
+    console.log(this.textoFinal);
+    
   }
 
   regresar(){

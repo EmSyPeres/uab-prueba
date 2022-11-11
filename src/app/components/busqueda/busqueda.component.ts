@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {  ActivatedRoute, Router } from "@angular/router";
 
+
 @Component({
   selector: 'app-busqueda',
   templateUrl: './busqueda.component.html',
@@ -72,6 +73,7 @@ export class BusquedaComponent implements OnInit {
   id: any;
   numposiblesheroes:any=0;
   error=false;
+  buit=false;
 
   constructor(private route: ActivatedRoute, private router: Router) {
     
@@ -81,33 +83,70 @@ export class BusquedaComponent implements OnInit {
 
   ngOnInit(): void {
     this.id=this.route.snapshot.paramMap.get('id');
-    this.arraySearch.splice(0);
+    
+    
     this.numposiblesheroes=0;
     let index:any;
-    for (let j = 0; j < this.heroes.length; j++) {
-      if (this.heroes[j].nombre.toLowerCase().indexOf(this.id.toLowerCase()) >=0) {
-        this.arraySearch[this.numposiblesheroes]=this.heroes[j].nombre;
-        this.numposiblesheroes++;
-        index =j;
+    if (this.id=="buit") {
+      
+      this.buit=true;
+
+    }
+    else{
+      for (let j = 0; j < this.heroes.length; j++) {
+        if (this.heroes[j].nombre.toLowerCase().indexOf(this.id.toLowerCase()) >=0) {
+          this.arraySearch[this.numposiblesheroes]=this.heroes[j].nombre;
+          this.numposiblesheroes++;
+          index =j;
+        }
+      
+        
+        
+      } 
+    
+  //si hay un error de typing se busca caracteres únicos en el nombre para redirigir al usuario.
+    
+      
+
+      if (this.id.toLowerCase().match('q')=='q' ) {
+        this.numposiblesheroes=1;
+        index=0;
       }
-      
-      
-    } 
-    if (this.id.toLowerCase().match('linterna')=='linterna') {
-      this.router.navigate(['/detalle',this.heroes[4].id]);
-    }
-    if (this.id.toLowerCase().match('spider')=='spider') {
-      this.router.navigate(['/detalle',this.heroes[5].id]);
-    }
-    
-    if (this.numposiblesheroes==1){
-      this.router.navigate(['/detalle',this.heroes[index].id]);
-    }
-    if(this.numposiblesheroes==0){
+      if (this.id.toLowerCase().match('b')=='b' ) {
+        this.numposiblesheroes=1;
+        index=1;
+      }
+      if (this.id.toLowerCase().match('d')=='d' && (this.id.toLowerCase().match('v')=='v')) {
+        this.numposiblesheroes=1;
+        index=2;
+      }
+      if (this.id.toLowerCase().match('h')=='h' ) {
+        this.numposiblesheroes=1;
+        index=3;
+      }
+      if (this.id.toLowerCase().match('linterna')=='linterna'||this.id.toLowerCase().match('verde')=='verde') {
+        this.numposiblesheroes=1;
+        index=4;
+      }
+      if (this.id.toLowerCase().match('spider')=='spider') {
+        this.numposiblesheroes=1;
+        index=5;
+      }
+      if (this.id.toLowerCase().match('w')=='w') {
+        this.numposiblesheroes=1;
+        index=6;
+      }
+
+
+
+      if (this.numposiblesheroes==1){
+        this.router.navigate(['/detalle',this.heroes[index].id]);
+      }
+      else if (this.numposiblesheroes==0) {
       this.error=true;
+      }
+    
+      
     }
-    
-    
   }
-  
 }

@@ -1,51 +1,68 @@
-
-<div *ngIf="error">
-    <div class="row ">
-
-        <div class="col text-center marge container">
-            <h3>Lo sentimos :( 
-                <br>
-                Su búsqueda no obtuvo resultados.
-            </h3>
-            <img src="assets\img\gifError.gif" alt="Sad Heroe">
+<div *ngIf="!buit; else NoMostrar">
+    <div *ngIf="error">
+        <div class="row container">
+    
+            <div class="col text-center marge ">
+                <h3>Lo sentimos :( 
+                    <br>
+                    Su búsqueda no obtuvo resultados.
+                </h3>
+                <img class="crop" src="assets\img\gifError.gif" alt="Sad Heroe">
+            </div>
+            
         </div>
         
     </div>
     
-</div>
-
-
-<div *ngIf="!error" class="container mt-3 mb-5">
-
-    <h1><b>Resultado de la búsqueda:</b> </h1>
-        <hr>
     
-        <div class="row row-cols-1 row-cols-md-3 g-4 ">
-            <div *ngFor="let item of arraySearch" >
-                <div *ngFor="let heroe of heroes">
-                    <div *ngIf="heroe.nombre==item">
-                        <div class="col">
-                            <div class="card">
-                                <img src="{{heroe.img}}" class="card-img-top" alt="{{heroe.nombre}}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{heroe.nombre}}</h5>
-                                    
-                                    <div class="d-grid gap-2 mt-3">
-                                        <button type="button" class="btn btn-outline-primary" [routerLink]="['/detalle', heroe.id]">Ver más...</button>
+    <div *ngIf="!error" class="container mt-3 mb-5">
+    
+        <h1><b>Resultado de la búsqueda:</b> <small> {{numposiblesheroes}} héroes encontrados</small></h1>
+            <hr>
+        
+            <div class="row row-cols-1 row-cols-md-3 g-4 ">
+                <div *ngFor="let item of arraySearch" >
+                    <div *ngFor="let heroe of heroes">
+                        <div *ngIf="heroe.nombre==item">
+                            <div class="col">
+                                <div class="card">
+                                    <img src="{{heroe.img}}" class="card-img-top" alt="{{heroe.nombre}}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{heroe.nombre}}</h5>
+                                        
+                                        <div class="d-grid gap-2 mt-3">
+                                            <button type="button" class="btn btn-outline-primary" [routerLink]="['/detalle', heroe.id]">Ver más...</button>
+                                        </div>
                                     </div>
+                                    
+                                
                                 </div>
                                 
-                            
+                
                             </div>
-                            
-            
                         </div>
                     </div>
+                    
                 </div>
-                
-            </div>
-    </div> 
+        </div> 
+    </div>
+    
 </div>
+
+<ng-template #NoMostrar>
+    <div class="row container">
+
+        <div class="col text-center marge ">
+            <h3>Lo sentimos :( 
+                <br>
+                No ha introducido términos en el buscador.
+            </h3>
+            <img class="crop" src="assets\img\gifError.gif" alt="Sad Heroe">
+        </div>
+        
+    </div>
+   
+</ng-template>
     
 
 

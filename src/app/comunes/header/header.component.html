@@ -20,7 +20,7 @@
           
         </ul>
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" (keydown)="regresar()" (keyup)="cargar(TextoBusqueda.value)" (keydown.enter)="buscar()" #TextoBusqueda>
+          <input class="form-control me-2" type="search" placeholder="Introduce héroes" aria-label="Search" (keydown)="regresar()" (keyup)="cargar(TextoBusqueda.value)" (keydown.enter)="buscar()" #TextoBusqueda >
           <button class="btn btn-outline-success" type="button" (click)="TextoBusqueda.value=''" (click)="buscar()">Buscar</button>
         </form>
       </div>

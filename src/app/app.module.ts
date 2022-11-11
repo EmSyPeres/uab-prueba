@@ -13,6 +13,7 @@ import { DetalleComponent } from './components/detalle/detalle.component';
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { BusquedaComponent } from './components/busqueda/busqueda.component';
     DetalleComponent,
 
     BusquedaComponent,
+
 
   ],
   imports: [

@@ -1,3 +1,8 @@
 .marge{
     margin-top: 40px;
+    padding-left: 300px!important;
+}
+
+.crop{
+    height: 30vw;
 }
